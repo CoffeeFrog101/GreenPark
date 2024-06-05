@@ -1,0 +1,17 @@
+.page-content {
+  text-align: center;
+}
+
+.page-content h1 {
+  font-size: 3rem; 
+}
+
+.page-content .text-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Optional: center the text fields */
+}
+
+.page-content .text-fields .MuiTextField-root {
+  margin: 10px 0; /* Add some spacing between the text fields */
+}

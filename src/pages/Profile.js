@@ -1,6 +1,11 @@
+import React from "react";
+
 const Profile = () => {
-    return <h1>Profile</h1>;
-  };
-  
-  export default Profile;
-  
+  return (
+    <div className="page-content"> {}
+      <h1>Profile</h1>
+    </div>
+  );
+};
+
+export default Profile;

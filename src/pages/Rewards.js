@@ -1,6 +1,11 @@
+import React from "react";
+
 const Rewards = () => {
-    return <h1>Rewards</h1>;
-  };
-  
-  export default Rewards;
-  
+  return (
+    <div className="page-content"> {}
+      <h1>Rewards</h1>
+    </div>
+  );
+};
+
+export default Rewards;
