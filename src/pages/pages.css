@@ -19,9 +19,11 @@
 .home-buttons {
   background-color: white !important;
   color: black !important;
+  width: 150px; 
+  height: 40px; 
 }
 
-.home-buttons:hover { /*NOT WORKING?*/ 
+.home-buttons:hover { 
   background-color: darkgreen !important;
 }
 
