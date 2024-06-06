@@ -1,13 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import BottomNavBar from "./BottomNavBar";
+import BottomNavBar from "./pages/BottomNavBar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Rewards from "./pages/Rewards";
-import './pages/pages.css';
+import "./pages/pages.css";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/profile" element={<Profile />} />

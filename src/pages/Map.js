@@ -1,3 +1,5 @@
+//import BottomPanel from "./BottomPanel";
+
 import {
   MapContainer,
   TileLayer,
@@ -35,8 +37,10 @@ const Map = () => {
           </Marker>
         ))}
       </MapContainer>
+
     </div>
   );
 };
+//      <BottomPanel />
 
 export default Map;
