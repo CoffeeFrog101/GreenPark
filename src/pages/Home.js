@@ -1,6 +1,7 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import Map from "./Map";
+//import BottomNavBar from "./BottomNavBar";
 
 const Home = () => {
   return (
@@ -17,5 +18,7 @@ const Home = () => {
     </div>
   );
 };
+// putting it underneath map here doesn't work
+//      <BottomNavBar />
 
 export default Home;
