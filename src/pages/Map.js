@@ -18,9 +18,9 @@ const Map = () => {
   const markers = [carPark1];
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center", widith: "100%" }}>
       <MapContainer
-        style={{ height: "69vh", width: "60vh" }}
+        style={{ height: "60vh", width: "80vw", maxWidth: "100%" }}
         center={position}
         zoom={13}
         scrollWheelZoom={false}

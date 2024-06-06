@@ -1,6 +1,6 @@
 import "./App.css";
-import BottomNavBar from "./BottomNavBar";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import BottomNavBar from "./BottomNavBar";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Rewards from "./pages/Rewards";

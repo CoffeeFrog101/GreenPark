@@ -5,7 +5,6 @@ import Map from "./Map";
 const Home = () => {
   return (
     <div className="page-content">
-      <h1>Home</h1>
       <div className="text-fields">
         <TextField
           id="filled-basic"
