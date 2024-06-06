@@ -1,4 +1,4 @@
-import BottomPanel from "./BottomPanel";
+//import BottomPanel from "./BottomPanel";
 
 import {
   MapContainer,
@@ -37,9 +37,10 @@ const Map = () => {
           </Marker>
         ))}
       </MapContainer>
-      <BottomPanel />
+
     </div>
   );
 };
+//      <BottomPanel />
 
 export default Map;

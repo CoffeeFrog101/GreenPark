@@ -8,6 +8,7 @@ import "./pages/pages.css";
 
 function App() {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path="/profile" element={<Profile />} />
