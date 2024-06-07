@@ -1,11 +1,11 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
-import fetchData from "../api/API.js";
+import fetchData from "../api/API.jsx";
 import L from "leaflet";
-import { LocationMarker } from "../utils/HelperFunc.js";
+import { LocationMarker } from "../utils/HelperFunc.jsx";
 import Stack from "@mui/material/Stack";
-import "./home.css";
+import "../pages.css";
 import MapButton from "./MapButton.jsx";
 
 delete L.Icon.Default.prototype._getIconUrl;
