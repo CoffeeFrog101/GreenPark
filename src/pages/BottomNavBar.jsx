@@ -2,11 +2,14 @@ import React from "react";
 import BottomNavigation from "@mui/material/BottomNavigation";
 import BottomNavigationAction from "@mui/material/BottomNavigationAction";
 import { Link, useLocation } from "react-router-dom";
-import HomeIcon from "@mui/icons-material/Home";
 import RewardsIcon from "@mui/icons-material/CardGiftcard";
 import ProfileIcon from "@mui/icons-material/AccountCircle";
 import Paper from "@mui/material/Paper";
+import map from "./imgs/map.png";
+//import rewards from "./imgs/rewards.png";
+//import profile from "./imgs/profile.png";
 
+/* MAKE THIS ENTIRE THING GREEN AND ADJUST IT */ 
 const BottomNavBar = () => {
   const { pathname } = useLocation();
   const [value, setValue] = React.useState(pathname);
@@ -28,12 +31,19 @@ const BottomNavBar = () => {
           component={Link}
           to="/rewards"
         />
+        {}
         <BottomNavigationAction
-          label="Home"
-          value="/"
-          icon={<HomeIcon />}
+          label="Map"
+          value="/map"
+          icon={
+            <img
+              src={map}
+              alt="Map"
+              style={{ width: "24px", height: "24px" }}
+            />
+          }
           component={Link}
-          to="/"
+          to="/map"
         />
         <BottomNavigationAction
           label="Profile"
@@ -49,3 +59,31 @@ const BottomNavBar = () => {
 };
 
 export default BottomNavBar;
+
+/* <BottomNavigationAction
+label="Rewards"
+value="/rewards"
+icon={
+  <img
+    src={rewards}
+    alt="Rewards"
+    style={{ width: "24px", height: "24px" }}
+  />
+}
+component={Link}
+to="/rewards"
+/>
+
+<BottomNavigationAction
+label="Profile"
+value="/profile"
+icon={
+  <img
+    src={profile}
+    alt="profile"
+    style={{ width: "24px", height: "24px" }}
+  />
+}
+component={Link}
+to="/profile"
+/> */

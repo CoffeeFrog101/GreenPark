@@ -1,10 +1,8 @@
 import React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
-import "./profile.css";
-import profile from "./imgs/profile.png";
-
-console.log(profile);
+import "./pages.css";
+import profile from "./imgs/profileicon.png";
 
 const Profile = () => {
   return (

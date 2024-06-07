@@ -7,14 +7,16 @@ const SearchContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  width: 100% !important;
+  justify-content: center; /* Center content horizontally */
 `;
 
 const StyledTextField = styled(TextField)`
   && {
     border-radius: 25px;
-    width: 130% !important;
+    width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+    margin: auto;
   }
 
   .MuiInputLabel-root {
@@ -28,8 +30,8 @@ const StyledSearchIcon = styled(SearchIcon)`
   pointer-events: none;
   color: white;
 `;
-
-const SearchBar = () => {
+// MAKE ENTER DESTINATION GO IN THE CENTER **
+const SearchBar = (props) => {
   return (
     <SearchContainer>
       <StyledTextField

@@ -4,7 +4,7 @@ import BottomNavBar from "./pages/BottomNavBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/Profile";
 import Rewards from "./pages/Rewards";
-import "./pages/profile.css";
+import "./pages/pages.css";
 
 function App() {
   return (
