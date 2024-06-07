@@ -34,66 +34,47 @@ const StyledHoverBubble = styled.div`
 `;
 
 const StyledBottomNavigationAction = styled(BottomNavigationAction)`
-  .MuiBottomNavigationAction-label {
-    color: white !important;
+  && {
+    .MuiBottomNavigationAction-label {
+      color: ${({ active }) => (active ? "white" : "gray")} !important;
+    }
+    .MuiBottomNavigationAction-root {
+      background-color: ${({ active }) => (active ? "white" : "transparent")};
+    }
   }
 `;
 
 const BottomNavBar = () => {
   const { pathname } = useLocation();
-  const [value, setValue] = React.useState(pathname);
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
+
+  const navigationItems = [
+    { label: "Rewards", value: "/rewards", icon: rewards },
+    { label: "Map", value: "/map", icon: map },
+    { label: "Profile", value: "/profile", icon: profile },
+  ];
 
   return (
     <Paper elevation={3}>
-      <StyledBottomNavigation value={value} onChange={handleChange} showLabels>
-        <StyledBottomNavigationAction
-          label="Rewards"
-          value="/rewards"
-          icon={
-            <StyledHoverBubble>
-              <img
-                src={rewards}
-                alt="Rewards"
-                style={{ width: "24px", height: "24px" }}
-              />
-            </StyledHoverBubble>
-          }
-          component={Link}
-          to="/rewards"
-        />
-        <StyledBottomNavigationAction
-          label="Map"
-          value="/map"
-          icon={
-            <StyledHoverBubble>
-              <img
-                src={map}
-                alt="Map"
-                style={{ width: "24px", height: "24px" }}
-              />
-            </StyledHoverBubble>
-          }
-          component={Link}
-          to="/map"
-        />
-        <StyledBottomNavigationAction
-          label="Profile"
-          value="/profile"
-          icon={
-            <StyledHoverBubble>
-              <img
-                src={profile}
-                alt="profile"
-                style={{ width: "24px", height: "24px" }}
-              />
-            </StyledHoverBubble>
-          }
-          component={Link}
-          to="/profile"
-        />
+      <StyledBottomNavigation value={pathname} showLabels>
+        {navigationItems.map((item) => (
+          <StyledBottomNavigationAction
+            key={item.value}
+            label={item.label}
+            value={item.value}
+            icon={
+              <StyledHoverBubble>
+                <img
+                  src={item.icon}
+                  alt={item.label}
+                  style={{ width: "24px", height: "24px" }}
+                />
+              </StyledHoverBubble>
+            }
+            component={Link}
+            to={item.value}
+            active={pathname === item.value}
+          />
+        ))}
       </StyledBottomNavigation>
     </Paper>
   );
