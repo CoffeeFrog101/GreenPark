@@ -5,7 +5,7 @@ import ParkingStats from "./ParkingStats";
 import styled from "styled-components";
 
 const StyledContainer = styled.div`
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 10px;
   background-color: white;
 `;
@@ -17,6 +17,7 @@ const Home = () => {
       <StyledContainer>
         <Map />
       </StyledContainer>
+
       <ParkingStats />
     </div>
   );

@@ -26,7 +26,7 @@ const TopPanel = () => {
           By using this Park & Ride you save X carbon!
         </h5>
       )}
-      <div className="text-fields">
+      <div className="search-bar" style={{ paddingBottom: "20px" }}>
         <SearchBar onSearchClick={handleSearchClick} />
       </div>
     </Container>
