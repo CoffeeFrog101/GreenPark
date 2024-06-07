@@ -42,18 +42,37 @@ const StyledTextField = styled.div`
   }
 `;
 
-const StyledSearchIcon = styled(SearchIcon)`
+const StyledSearchButton = styled.button`
   position: absolute;
   right: 10px;
-  pointer-events: none;
-  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  .MuiSvgIcon-root {
+    color: white; /* Change the color of the search icon to white */
+  }
 `;
 
-const CustomTextField = (props) => {
+const CustomTextField = ({ onSearchClick }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event) => {
     setInputValue(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    if (onSearchClick) {
+      onSearchClick();
+    }
   };
 
   return (
@@ -64,7 +83,9 @@ const CustomTextField = (props) => {
         onChange={handleChange}
         placeholder="Enter Destination"
       />
-      <StyledSearchIcon />
+      <StyledSearchButton onClick={handleSearchClick}>
+        <SearchIcon />
+      </StyledSearchButton>
     </StyledTextField>
   );
 };
