@@ -4,11 +4,10 @@ import BottomNavBar from "./pages/BottomNavBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/Profile";
 import Rewards from "./pages/Rewards";
-import "./pages/pages.css";
+import "./pages/profile.css";
 
 function App() {
   return (
-    
     <BrowserRouter>
       <Routes>
         <Route path="/profile" element={<Profile />} />

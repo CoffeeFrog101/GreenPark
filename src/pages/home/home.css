@@ -25,31 +25,6 @@ h5 {
   display: inline-block;
 }
 
-/* CREATE A COMPONENT FOR THIS */
-#searchbar {
-  border-radius: 25px;
-  width: 130% !important;
-  background-color: rgba(255, 255, 255, 0.5);
-}
-
-.search-container {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 100% !important;
-}
-
-.white-label {
-  color: white !important; /* Destination text white */
-}
-
-.search-icon {
-  position: absolute;
-  right: 10px;
-  pointer-events: none;
-  color: white;
-}
-
 .home-buttons {
   background-color: rgb(228, 242, 234) !important; /*overide mui styles */
   color: black !important;
@@ -65,11 +40,6 @@ h5 {
 
 .home-buttons:active {
   /* for mobile inspect */
-  background-color: darkgreen !important;
-  color: white !important;
-}
-
-.profile-buttons {
   background-color: darkgreen !important;
   color: white !important;
 }
