@@ -2,9 +2,12 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import { marker } from "leaflet";
-import fetchData from "./api/API";
+import fetchData from "../api/API.js";
 import L from "leaflet";
-import { LocationMarker } from "./Utils/HelperFunc";
+import { LocationMarker } from "../utils/HelperFunc.js";
+import Stack from "@mui/material/Stack";
+import "../pages.css";
+import MapButton from "./MapButton.jsx";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -48,7 +51,24 @@ const Map = () => {
               </Popup>
             </Marker>
           ))}
-
+          {}
+          <Stack
+            direction="row"
+            spacing={2}
+            style={{
+              position: "absolute",
+              top: "0%",
+              zIndex: 1000,
+              display: "flex",
+              alignItems: "center",
+              width: "100%",
+              justifyContent: "center",
+            }}
+          >
+            <MapButton text="Bus Stops" />
+            <MapButton text="Tram Stops" />
+          </Stack>
+          {}
           <LocationMarker />
         </MapContainer>
       </div>

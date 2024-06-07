@@ -2,7 +2,7 @@ import React from "react";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import "./pages.css";
-import profile from "./profile.png";
+import profile from "./imgs/profile.png";
 
 console.log(profile);
 

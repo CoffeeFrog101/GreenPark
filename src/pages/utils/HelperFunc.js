@@ -10,17 +10,6 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
 
-export function Animate() {
-  const map = useMapEvents({
-    click: (e) => {
-      map.setView(e.latlng, map.getZoom(), {
-        animate: true,
-      });
-    },
-  });
-  return null;
-}
-
 export function LocationMarker() {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({

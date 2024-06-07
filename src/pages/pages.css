@@ -1,28 +1,72 @@
+h3 {
+  color: white;
+  text-align: left;
+}
+h5 {
+  color: white;
+}
+
 .page-content {
-  text-align: center;
-}
-
-.page-content h1 {
-  font-size: 3rem;
-}
-
-.page-content .text-fields {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
-
 .page-content .text-fields .MuiTextField-root {
   margin: 10px 0;
 }
 
-.home-buttons {
-  background-color: white !important;
-  color: black !important;
+.top-panel {
+  background-color: rgb(0, 88, 0);
 }
 
-.home-buttons:hover { /*NOT WORKING?*/ 
+.text-fields {
+  position: relative;
+  display: inline-block;
+}
+
+/* CREATE A COMPONENT FOR THIS */
+#searchbar {
+  border-radius: 25px;
+  width: 130% !important;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+}
+
+.white-label {
+  color: white !important; /* Destination text white */
+}
+
+.search-icon {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: white;
+}
+
+.home-buttons {
+  background-color: rgb(228, 242, 234) !important; /*overide mui styles */
+  color: black !important;
+  width: 150px;
+  height: 40px;
+  border-radius: 50px !important;
+}
+
+.home-buttons:hover {
   background-color: darkgreen !important;
+  color: white !important;
+}
+
+.home-buttons:active {
+  /* for mobile inspect */
+  background-color: darkgreen !important;
+  color: white !important;
 }
 
 .profile-buttons {
