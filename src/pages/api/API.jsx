@@ -11,9 +11,12 @@ const fetchData = async (API) => {
         ];
       const numOfSpace =
         mapper.definition.parkingRecord.parkingRecord.parkingNumberOfSpaces;
-      const Occupation =
+      const numOfOccupiedSpaces =
         mapper.status.parkingRecord.parkingRecordStatus.parkingOccupancy
-          .parkingOccupancy;
+          .parkingNumberOfOccupiedSpaces;
+      const status =
+        mapper.status.parkingRecord.parkingRecordStatus
+          .parkingSiteOpeningStatus;
       const position = [
         mapper.definition.parkingRecord.parkingRecord.parkingLocation
           .locationForDisplay["latitude"],
@@ -25,8 +28,9 @@ const fetchData = async (API) => {
         return {
           id: mapper.id,
           name: parkRide,
-          capacity: numOfSpace,
-          occupation: Occupation,
+          ParkingSpots: numOfSpace - numOfOccupiedSpaces,
+          status: status,
+
           position: position,
         };
       }
