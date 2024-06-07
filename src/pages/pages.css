@@ -27,23 +27,22 @@ h5 {
 
 /* CREATE A COMPONENT FOR THIS */
 #searchbar {
-  width: 150%;
   border-radius: 25px;
-  background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+  width: 130% !important;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
-/* Styling the container for the TextField and the icon */
 .search-container {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100% !important;
 }
 
 .white-label {
-  color: white !important; /* Make the label text white */
+  color: white !important; /* Destination text white */
 }
 
-/* Styling the search icon */
 .search-icon {
   position: absolute;
   right: 10px;
@@ -52,7 +51,7 @@ h5 {
 }
 
 .home-buttons {
-  background-color: white !important; /*overide mui styles */
+  background-color: rgb(228, 242, 234) !important; /*overide mui styles */
   color: black !important;
   width: 150px;
   height: 40px;
@@ -61,6 +60,13 @@ h5 {
 
 .home-buttons:hover {
   background-color: darkgreen !important;
+  color: white !important;
+}
+
+.home-buttons:active {
+  /* for mobile inspect */
+  background-color: darkgreen !important;
+  color: white !important;
 }
 
 .profile-buttons {

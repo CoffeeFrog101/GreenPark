@@ -3,9 +3,8 @@ import TextField from "@mui/material/TextField";
 import Map from "./Map";
 //import BottomNavBar from "./BottomNavBar";
 import Container from "@mui/material/Container";
-import search from "./search.png";
-import InputAdornment from "@mui/material/InputAdornment";
-import SearchIcon from "@mui/icons-material/Search"; // Import the search icon from MUI Icons
+import search from "../imgs/search.png";
+import SearchIcon from "@mui/icons-material/Search"; 
 
 console.log(search);
 
@@ -23,13 +22,12 @@ const Home = () => {
               label="Enter Destination"
               variant="filled"
               InputLabelProps={{
-                className: "white-label" // Add a class for the label
+                className: "white-label",
               }}
             />
             <SearchIcon className="search-icon" />
           </div>
         </div>
-
       </Container>
       <Map />
     </div>
