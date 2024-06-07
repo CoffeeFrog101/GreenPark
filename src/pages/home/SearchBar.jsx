@@ -29,13 +29,17 @@ const StyledSearchIcon = styled(SearchIcon)`
   color: white;
 `;
 
-const SearchBar = () => {
+const SearchBar = ({ onSearchChange }) => {
   return (
     <SearchContainer>
       <StyledTextField
         id="searchbar"
         label="Enter Destination"
         variant="filled"
+        InputLabelProps={{
+          className: "white-label",
+        }}
+        onChange={(e) => onSearchChange(e.target.value)}
       />
       <StyledSearchIcon />
     </SearchContainer>
