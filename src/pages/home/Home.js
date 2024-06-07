@@ -1,9 +1,8 @@
 import React from "react";
-import TextField from "@mui/material/TextField";
 import Map from "./Map";
 //import BottomNavBar from "./BottomNavBar";
 import Container from "@mui/material/Container";
-import SearchBar from "./SearchBar"; // Import the SearchBar component
+import SearchBar from "./SearchBar"; 
 
 const Home = () => {
   return (
@@ -11,9 +10,8 @@ const Home = () => {
       <Container maxWidth="sm" className="top-panel">
         <h3> Hello, User!</h3>
         <h5> You've saved X carbon footprint. Keep up the good work!</h5>
-
         <div className="text-fields">
-          <SearchBar /> {/* Use the SearchBar component */}
+          <SearchBar /> {}
         </div>
       </Container>
       <Map />

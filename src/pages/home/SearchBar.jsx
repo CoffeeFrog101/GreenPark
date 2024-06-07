@@ -1,24 +1,44 @@
 import React from "react";
 import TextField from "@mui/material/TextField";
 import SearchIcon from "@mui/icons-material/Search";
-import "./searchbar.css";
-import search from "../imgs/search.png";
+import styled from "styled-components";
 
-console.log(search);
+const SearchContainer = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100% !important;
+`;
+
+const StyledTextField = styled(TextField)`
+  && {
+    border-radius: 25px;
+    width: 130% !important;
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+
+  .MuiInputLabel-root {
+    color: white !important;
+  }
+`;
+
+const StyledSearchIcon = styled(SearchIcon)`
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+  color: white;
+`;
 
 const SearchBar = () => {
   return (
-    <div className="search-container">
-      <TextField
+    <SearchContainer>
+      <StyledTextField
         id="searchbar"
         label="Enter Destination"
         variant="filled"
-        InputLabelProps={{
-          className: "white-label",
-        }}
       />
-      <SearchIcon className="search-icon" />
-    </div>
+      <StyledSearchIcon />
+    </SearchContainer>
   );
 };
 
