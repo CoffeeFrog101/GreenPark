@@ -31,13 +31,14 @@ const StyledSearchIcon = styled(SearchIcon)`
   color: white;
 `;
 // MAKE ENTER DESTINATION GO IN THE CENTER **
-const SearchBar = (props) => {
+const SearchBar = ({ onSearchChange }) => {
   return (
     <SearchContainer>
       <StyledTextField
         id="searchbar"
         label="Enter Destination"
         variant="filled"
+        onChange={(e) => onSearchChange(e.target.value)}
       />
       <StyledSearchIcon />
     </SearchContainer>
