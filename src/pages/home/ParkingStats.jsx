@@ -6,8 +6,8 @@ const ParkingStats = () => {
     backgroundColor: "rgb(0, 88, 0)",
     color: "white",
     textAlign: "center",
-    borderRadius: "20px",
-    width: "80%",
+    borderRadius: "50px", 
+    width: "50%", 
   };
 
   const headingStyle = {

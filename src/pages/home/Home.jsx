@@ -7,7 +7,9 @@ import SearchBar from "./SearchBar";
 
 const StyledContainer = styled.div`
   margin-top: 10px;
-  margin-bottom: 5px;
+  margin-bottom: 5px
+  background-color: white;
+
 `;
 
 const Home = () => {

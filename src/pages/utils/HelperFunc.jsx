@@ -1,14 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Marker, useMapEvents, Popup } from "react-leaflet";
 import L from "leaflet";
-
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl:
-    "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon-2x.png",
-  iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png",
-  shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
-});
+import { IconButton } from "@mui/material";
+import NavigationIcon from "@mui/icons-material/Navigation";
 
 export function LocationMarker() {
   const [position, setPosition] = useState(null);
@@ -28,60 +22,58 @@ export function LocationMarker() {
     map.locate();
   };
 
+  const [isHovered, setIsHovered] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
+
+  const handleTouchStart = () => {
+    setIsActive(true);
+  };
+
+  const handleTouchEnd = () => {
+    setIsActive(false);
+  };
+
   return (
     <>
       {position && (
         <Marker position={position}>
-          <Popup>You are here</Popup>
+          <Popup>Current Location</Popup>
         </Marker>
       )}
-      <button
+      <IconButton
         onClick={handleLocateUser}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
         style={{
           position: "absolute",
           bottom: "20px",
           right: "20px",
-          width: "70px",
-          height: "70px",
-          borderRadius: "50%",
-          backgroundColor: "Green",
-          color: "white",
-          border: "none",
-          cursor: "pointer",
           zIndex: 1000,
+          backgroundColor:
+            isActive || isHovered ? "rgb(0, 88, 0)" : "rgb(228, 242, 234)",
+          width: "40px",
+          height: "40px",
+          borderRadius: "50%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          boxShadow: "0px 0px 10px rgba(0, 0, 0, 0.3)",
         }}
       >
-        Locate
-      </button>
+        <NavigationIcon
+          style={{ color: isActive || isHovered ? "white" : "black" }}
+        />
+      </IconButton>
     </>
   );
 }
-
-// export function Locator() {
-//   const map = useMapEvents();
-
-//   const handleLocateUser = () => {
-//     map.locate();
-//   };
-
-//   return (
-// <button
-//   onClick={handleLocateUser}
-//   style={{
-//     position: "absolute",
-//     bottom: "20px",
-//     right: "20px",
-//     width: "50px",
-//     height: "50px",
-//     borderRadius: "50%",
-//     backgroundColor: "blue",
-//     color: "white",
-//     border: "none",
-//     cursor: "pointer",
-//     zIndex: 1000,
-//   }}
-// >
-//   Locate
-// </button>
-//);
-// }
