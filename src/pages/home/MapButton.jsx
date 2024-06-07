@@ -15,7 +15,6 @@ const StyledButton = styled(Button)`
   }
 
   &:active {
-    /* for mobile inspect */
     background-color: darkgreen !important;
     color: white !important;
   }
