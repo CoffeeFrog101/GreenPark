@@ -32,13 +32,9 @@ const StyledTextField = styled.div`
     opacity: ${({ hasInput }) => (hasInput ? 0 : 1)};
   }
 
-  .MuiSvgIcon-root {
-    color: black; /* Change the color of the search icon to black */
-  }
-
   .MuiInputLabel-shrink {
-    top: 0; /* Position label at the top when shrinking */
-    transform: translateY(-100%); /* Adjust positioning to avoid shifting */
+    top: 0;
+    transform: translateY(-100%);
   }
 `;
 
@@ -58,7 +54,16 @@ const StyledSearchButton = styled.button`
   }
 
   .MuiSvgIcon-root {
-    color: white; /* Change the color of the search icon to white */
+    color: black !important;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  &:hover .MuiSvgIcon-root,
+  &:active .MuiSvgIcon-root {
+    color: white !important;
+    border-radius: 50%;
+    background-color: rgb(0, 88, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   }
 `;
 
