@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BottomNavBar from "./pages/BottomNavBar";
 import Home from "./pages/home/Home";
 import Profile from "./pages/Profile";
-import Rewards from "./pages/Rewards";
+import Rewards from "./pages/rewards/Rewards";
 import "./pages/pages.css";
 
 function App() {

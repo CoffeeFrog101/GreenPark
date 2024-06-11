@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const FloatingContainer = styled.div`
   position: fixed;
-  bottom: 2em; 
+  bottom: 2em;
   left: 0;
   height: 2em;
   width: 100%;
@@ -12,7 +12,7 @@ const FloatingContainer = styled.div`
 `;
 
 const FloatingLabel = styled.label`
-  background: green;
+  background: yellow;
   width: 100%;
   height: 100%;
   display: block;
