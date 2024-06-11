@@ -11,19 +11,19 @@ const RewardsInfo = () => {
     textAlign: "center",
     borderRadius: "50px",
     width: "80%",
-    padding: "10px",
+    padding: "12px",
     marginTop: "50px",
     marginBottom: "50px",
   };
 
   const imageStyle = {
-    width: "5vh",
-    height: "5vh",
+    width: "8vh",
+    height: "8vh",
     marginRight: "10px",
   };
 
   const paragraphStyle = {
-    fontSize: "0.8em",
+    fontSize: "1em",
     wordWrap: "break-word",
     textAlign: "justify",
   };

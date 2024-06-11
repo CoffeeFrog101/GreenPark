@@ -24,7 +24,6 @@ const FloatingLabel = styled.label`
 
 const FloatingList = styled.ul`
   position: absolute;
-  bottom: -6em;
   left: 0;
   width: 100%;
   transition: bottom 0.1s ease-in;
@@ -61,7 +60,7 @@ const FloatingListItem = styled.li`
 
 const FloatingInput = styled.input`
   &[type="checkbox"]:checked + ul {
-    bottom: 2em;
+    bottom: 2em; /* Show the floating list when the checkbox is checked */
   }
 `;
 
