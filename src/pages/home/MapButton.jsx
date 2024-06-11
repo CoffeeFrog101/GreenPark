@@ -21,7 +21,11 @@ const StyledButton = styled(Button)`
 `;
 
 const MapButton = (props) => {
-  return <StyledButton variant="contained">{props.text}</StyledButton>;
+  return (
+    <StyledButton variant="contained" onClick={props.onClick}>
+      {props.text}
+    </StyledButton>
+  );
 };
 
 export default MapButton;

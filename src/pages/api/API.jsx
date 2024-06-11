@@ -2,7 +2,6 @@ const fetchData = async (API) => {
   const response = await fetch(API);
   const responseData = await response.json();
   let displayData;
-
   displayData = responseData.carParks.carPark
     .map(function (mapper) {
       const parkRide =
@@ -30,7 +29,6 @@ const fetchData = async (API) => {
           name: parkRide,
           ParkingSpots: numOfSpace - numOfOccupiedSpaces,
           status: status,
-
           position: position,
         };
       }

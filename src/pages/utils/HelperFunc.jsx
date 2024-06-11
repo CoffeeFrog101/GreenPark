@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Marker, useMapEvents, Popup } from "react-leaflet";
-import L from "leaflet";
 import { IconButton } from "@mui/material";
 import NavigationIcon from "@mui/icons-material/Navigation";
 
@@ -9,7 +8,7 @@ export function LocationMarker() {
   const map = useMapEvents({
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom(), map.getZoom, map.getZoom);
+      map.flyTo(e.latlng, map.getZoom(), map.autoPanOnFocus);
     },
   });
 
