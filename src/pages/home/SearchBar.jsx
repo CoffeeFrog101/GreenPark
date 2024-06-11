@@ -86,7 +86,7 @@ const CustomTextField = ({ onSearchClick }) => {
         type="text"
         value={inputValue}
         onChange={handleChange}
-        placeholder="Enter Destination"
+        placeholder="Enter Park & Ride"
       />
       <StyledSearchButton onClick={handleSearchClick}>
         <SearchIcon />
