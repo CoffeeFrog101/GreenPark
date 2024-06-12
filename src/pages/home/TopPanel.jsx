@@ -3,13 +3,17 @@ import Container from "@mui/material/Container";
 import SearchBar from "./SearchBar";
 
 
+export const topPanelStyle = {
+  backgroundColor: "rgb(0, 88, 0)",
+  color: "white",
+};
+
+
 const TopPanel = () => {
   const [showHeading, setShowHeading] = useState(false);
 
-  const topPanelStyle = {
-    backgroundColor: "rgb(0, 88, 0)",
-    color: "white",
-  };
+
+
 
 export const headingStyle = {
   color: "white",

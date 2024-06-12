@@ -16,6 +16,7 @@ const StyledContainer = styled.div`
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedMarker, setSelectedMarker] = useState(null);
 
   const handleSearchChange = (term) => {
     setSearchTerm(term.toLowerCase());
@@ -26,10 +27,12 @@ const Home = () => {
         <SearchBar onSearchChange={handleSearchChange} />
       </TopPanel>
       <StyledContainer>
-        <Map searchTerm={searchTerm} />
+        <Map searchTerm={searchTerm} onMarkerSelect={setSelectedMarker} />
       </StyledContainer>
 
-      <ParkingStats />
+
+      <ParkingStats selectedMarker={selectedMarker} />
+
     </div>
   );
 };
