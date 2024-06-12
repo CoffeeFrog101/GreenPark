@@ -1,7 +1,5 @@
 import React from "react";
 import Container from "@mui/material/Container";
-import SearchBar from "./SearchBar";
-
 export const topPanelStyle = {
   backgroundColor: "rgb(0, 88, 0)",
   color: "white",
