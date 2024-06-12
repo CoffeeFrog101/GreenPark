@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { Marker, useMapEvents, Popup } from "react-leaflet";
-import L from "leaflet";
 import { IconButton } from "@mui/material";
 import NavigationIcon from "@mui/icons-material/Navigation";
+import L from "leaflet";
 
 export function LocationMarker() {
   const [position, setPosition] = useState(null);
   const map = useMapEvents({
     locationfound(e) {
       setPosition(e.latlng);
-      map.flyTo(e.latlng, map.getZoom(), map.getZoom, map.getZoom);
+      map.flyTo(e.latlng, map.getZoom(), map.autoPanOnFocus);
     },
   });
 
@@ -77,3 +77,23 @@ export function LocationMarker() {
     </>
   );
 }
+
+export const tramStopIcon = new L.Icon({
+  iconUrl: require("../imgs/TramIcon.png"),
+  iconSize: [20, 20],
+  iconAnchor: [20, 20],
+  popupAnchor: [1, -34],
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  shadowSize: [20, 20],
+  shadowAnchor: [20, 20],
+});
+
+export const busStopIcon = new L.Icon({
+  iconUrl: require("../imgs/bus-stop.png"),
+  iconSize: [20, 20],
+  iconAnchor: [20, 20],
+  popupAnchor: [1, -34],
+  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  shadowSize: [20, 20],
+  shadowAnchor: [20, 20],
+});

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Map from "./Map";
-import TopPanel, { topPanelStyle, headingStyle } from "./TopPanel";
+import { TopPanel, topPanelStyle, headingStyle } from "./TopPanel";
 import ParkingStats from "./ParkingStats";
 import styled from "styled-components";
-import SearchBar from "./SearchBar";
+import CustomTextField from "./SearchBar";
 
 const StyledContainer = styled.div`
   margin-top: 10px;
@@ -13,20 +13,41 @@ const StyledContainer = styled.div`
 
 const Home = () => {
   const [searchTerm, setSearchTerm] = useState("");
+  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [markers, setMarkers] = useState([]);
 
-  const handleSearchChange = (term) => {
+  const handleSearchClick = (term) => {
     setSearchTerm(term.toLowerCase());
   };
 
+  const handleMarkerSelect = (marker) => {
+    setSelectedMarker(marker);
+  };
+
+  const handleMarkersUpdate = (markers) => {
+    setMarkers(markers);
+  };
+
+
   return (
     <div className="page-content">
-      <TopPanel panel={topPanelStyle} head={headingStyle}>
-        <SearchBar onSearchChange={handleSearchChange} />
+      <TopPanel
+        panel={topPanelStyle}
+        head={headingStyle}
+        onSearchClick={handleSearchClick}
+      >
+        <CustomTextField onSearchChange={handleSearchClick} />
       </TopPanel>
       <StyledContainer>
-        <Map searchTerm={searchTerm} />
+        <Map
+          searchTerm={searchTerm}
+          onMarkerSelect={handleMarkerSelect}
+          onMarkersUpdate={handleMarkersUpdate}
+        />
       </StyledContainer>
-      <ParkingStats />
+
+      <ParkingStats markers={markers} searchTerm={searchTerm} />
+
     </div>
   );
 };

@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import Container from "@mui/material/Container";
-import SearchBar from "./SearchBar";
 
-export const headingStyle = {
-  color: "white",
-};
+import CustomTextField from "./SearchBar";
 
 export const topPanelStyle = {
   backgroundColor: "rgb(0, 88, 0)",
   color: "white",
 };
+export const headingStyle = {
+  color: "white",
+};
 
-const TopPanel = () => {
+
+export const TopPanel = ({ onSearchClick }) => {
   const [showHeading, setShowHeading] = useState(false);
 
-  const handleSearchClick = () => {
+  const handleSearchClick = (term) => {
+
     setShowHeading(true);
+    if (onSearchClick) {
+      onSearchClick(term);
+    }
   };
 
   return (
@@ -27,10 +32,8 @@ const TopPanel = () => {
         </h5>
       )}
       <div className="search-bar" style={{ paddingBottom: "20px" }}>
-        <SearchBar onSearchClick={handleSearchClick} />
+        <CustomTextField onSearchClick={handleSearchClick} />
       </div>
     </Container>
   );
 };
-
-export default TopPanel;

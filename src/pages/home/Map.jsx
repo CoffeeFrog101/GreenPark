@@ -3,11 +3,18 @@ import React, { useState, useEffect } from "react";
 import "leaflet/dist/leaflet.css";
 import fetchData from "../api/API.jsx";
 import L from "leaflet";
-import { LocationMarker } from "../utils/HelperFunc.jsx";
+import {
+  LocationMarker,
+  busStopIcon,
+  tramStopIcon,
+} from "../utils/HelperFunc.jsx";
 import Stack from "@mui/material/Stack";
 import "../pages.css";
 import MapButton from "./MapButton.jsx";
-import SearchBar from "./SearchBar.jsx";
+import fetchTramStops from "../api/TramApi.jsx";
+import { getTramStopsApiUrl } from "../utils/TramGetFunc.jsx";
+import { getBusStopsApiUrl } from "../utils/BusGetFunc.jsx";
+import fetchBusStops from "../api/BusApi.jsx";
 
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
@@ -17,24 +24,78 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
 
-const Map = ({ searchTerm }) => {
+const Map = ({ searchTerm, onMarkerSelect, onMarkersUpdate }) => {
   const [markers, setMarkers] = useState([]);
-  const API = "https://geoserver.nottinghamcity.gov.uk/parking/defstatus.json";
-  //REALLY IMPORTANT DONT DELETE IT
-  //const TotonApi="https://services.arcgis.com/yvqphKcf9bBSnjX1/arcgis/rest/services/Tram_Stops/FeatureServer/62/query?where=Stop_Name%20%3D%20%27TOTON%20LANE%20PARK%20AND%20RIDE%27%20OR%20Stop_Name%20%3D%20%27ESKDALE%20DRIVE%27%20OR%20Stop_Name%20%3D%20%27CATOR%20LANE%27%20OR%20Stop_Name%20%3D%20%27BEESTON%20TOWN%20CENTRE%27%20OR%20Stop_Name%20%3D%20%27UNIVERSITY%20BOULEVARD%27%20OR%20Stop_Name%20%3D%20%27UNIVERSITY%20OF%20NOTTINGHAM%27%20OR%20Stop_Name%20%3D%20%27QMC%27%20OR%20Stop_Name%20%3D%20%27NG2%27%20OR%20Stop_Name%20%3D%20%27NOTTINGHAM%20STATION%27%20OR%20Stop_Name%20%3D%20%27LACE%20MARKET%27%20OR%20Stop_Name%20%3D%20%27OLD%20MARKET%20SQUARE%27&outFields=*&outSR=4326&f=json"
+  const [tramStops, setTramStops] = useState([]);
+  const [busStops, setBusStops] = useState([]);
+  const [showTramStops, setShowTramStops] = useState(false);
+  const [showBusStops, setShowBusStops] = useState(false);
 
+  const API = "https://geoserver.nottinghamcity.gov.uk/parking/defstatus.json";
   useEffect(() => {
     const getMarkers = async () => {
       const data = await fetchData(API);
       setMarkers(data);
+      if (onMarkersUpdate) {
+        onMarkersUpdate(data);
+      }
+      console.log("park and ride stops fetched:", data); // Debug
     };
 
     getMarkers();
-  }, [API]);
+  }, [onMarkersUpdate]);
+
+  useEffect(() => {
+    if (showTramStops) {
+      const getStops = async () => {
+        const url = getTramStopsApiUrl(searchTerm);
+        if (url) {
+          const data = await fetchTramStops(url);
+          setTramStops(data);
+        } else {
+          setTramStops([]);
+        }
+      };
+
+      getStops();
+    } else {
+      setTramStops([]);
+    }
+  }, [searchTerm, showTramStops]);
+
+  useEffect(() => {
+    if (showBusStops) {
+      const getStops = async () => {
+        const url = getBusStopsApiUrl(searchTerm);
+        if (url) {
+          const data = await fetchBusStops(url);
+          setBusStops(data);
+          console.log("Bus stops fetched:", data); // Debug
+        } else {
+          setBusStops([]);
+        }
+      };
+
+      getStops();
+    } else {
+      setBusStops([]);
+    }
+  }, [searchTerm, showBusStops]);
+
+  useEffect(() => {}, [showTramStops, tramStops, showBusStops, busStops]);
 
   const filteredMarkers = markers.filter((marker) =>
     marker.name.toLowerCase().includes(searchTerm)
   );
+
+  const handleShowTramStops = () => {
+    setShowTramStops((prev) => !prev);
+  };
+
+  const handleShowBusStops = () => {
+    setShowBusStops((prev) => !prev);
+    console.log("Bus stops visibility toggled:", !showBusStops);
+  };
   const defaultPosition = [52.95435, -1.14956];
   return (
     <div>
@@ -49,9 +110,19 @@ const Map = ({ searchTerm }) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
+
           {filteredMarkers.map(
             ({ id, name, ParkingSpots, status, position }) => (
-              <Marker key={id} position={position}>
+              <Marker
+                Marker
+                key={id}
+                position={position}
+                eventHandlers={{
+                  click: () => {
+                    onMarkerSelect({ name, status, ParkingSpots });
+                  },
+                }}
+              >
                 <Popup>
                   {name}
                   <br /> {ParkingSpots} Parking Spots available
@@ -60,7 +131,23 @@ const Map = ({ searchTerm }) => {
               </Marker>
             )
           )}
-          {}
+
+          {showTramStops &&
+            tramStops.map(({ Id, StopName, position }) => (
+              <Marker key={Id} position={position} icon={tramStopIcon}>
+                <Popup>{StopName}</Popup>
+              </Marker>
+            ))}
+          {showBusStops &&
+            busStops.map(({ Id, StopName, StopCode, position }) => (
+              <Marker key={Id} position={position} icon={busStopIcon}>
+                <Popup>
+                  {StopName}
+                  <br /> Stop Code: {StopCode}
+                </Popup>
+              </Marker>
+            ))}
+
           <Stack
             direction="row"
             spacing={2}
@@ -74,8 +161,8 @@ const Map = ({ searchTerm }) => {
               justifyContent: "center",
             }}
           >
-            <MapButton text="Bus Stops" />
-            <MapButton text="Tram Stops" />
+            <MapButton text="Bus Stops" onClick={handleShowBusStops} />
+            <MapButton text="Tram Stops" onClick={handleShowTramStops} />
           </Stack>
           {}
           <LocationMarker />
