@@ -7,11 +7,8 @@ import SearchBar from "./SearchBar";
 
 const StyledContainer = styled.div`
   margin-top: 10px;
-
   margin-bottom: 10px;
-
   background-color: white;
-
 `;
 
 const Home = () => {
@@ -20,6 +17,7 @@ const Home = () => {
   const handleSearchChange = (term) => {
     setSearchTerm(term.toLowerCase());
   };
+
   return (
     <div className="page-content">
       <TopPanel panel={topPanelStyle} head={headingStyle}>
@@ -28,7 +26,6 @@ const Home = () => {
       <StyledContainer>
         <Map searchTerm={searchTerm} />
       </StyledContainer>
-
       <ParkingStats />
     </div>
   );
