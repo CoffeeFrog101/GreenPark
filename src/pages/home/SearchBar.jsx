@@ -1,48 +1,99 @@
-import React from "react";
-import TextField from "@mui/material/TextField";
-import SearchIcon from "@mui/icons-material/Search";
+import React, { useState } from "react";
 import styled from "styled-components";
+import SearchIcon from "@mui/icons-material/Search";
 
-const SearchContainer = styled.div`
+const StyledTextField = styled.div`
   position: relative;
+  width: 100%;
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: auto;
   display: flex;
   align-items: center;
-  justify-content: center; /* Center content horizontally */
-`;
+  justify-content: center;
 
-const StyledTextField = styled(TextField)`
-  && {
-    border-radius: 25px;
+  input {
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
+    padding: 12px 40px 12px 20px;
+    border: none;
+    background: transparent;
     text-align: center;
-    margin: auto;
+    color: black;
+    font-size: 16px;
+    outline: none;
   }
 
-  .MuiInputLabel-root {
-    color: white !important;
+  label {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    transition: opacity 0.3s ease, top 0.3s ease;
+    opacity: ${({ hasInput }) => (hasInput ? 0 : 1)};
+  }
+
+  .MuiInputLabel-shrink {
+    top: 0;
+    transform: translateY(-100%);
   }
 `;
 
-const StyledSearchIcon = styled(SearchIcon)`
+const StyledSearchButton = styled.button`
   position: absolute;
   right: 10px;
-  pointer-events: none;
-  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+
+  &:focus {
+    outline: none;
+  }
+
+  .MuiSvgIcon-root {
+    color: black !important;
+    transition: color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  &:hover .MuiSvgIcon-root,
+  &:active .MuiSvgIcon-root {
+    color: white !important;
+    border-radius: 50%;
+    background-color: rgb(0, 88, 0);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  }
 `;
+
 // MAKE ENTER DESTINATION GO IN THE CENTER **
-const SearchBar = ({ onSearchChange }) => {
+const CustomTextField = ({ onSearchClick }) => {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleChange = (event) => {
+    setInputValue(event.target.value);
+  };
+
+  const handleSearchClick = () => {
+    if (onSearchClick) {
+      onSearchClick();
+    }
+  };
+
   return (
-    <SearchContainer>
-      <StyledTextField
-        id="searchbar"
-        label="Enter Destination"
-        variant="filled"
-        onChange={(e) => onSearchChange(e.target.value)}
+    <StyledTextField hasInput={inputValue.length > 0}>
+      <input
+        type="text"
+        value={inputValue}
+        onChange={handleChange}
+        placeholder="Enter Park & Ride"
       />
-      <StyledSearchIcon />
-    </SearchContainer>
+      <StyledSearchButton onClick={handleSearchClick}>
+        <SearchIcon />
+      </StyledSearchButton>
+    </StyledTextField>
   );
 };
 
-export default SearchBar;
+export default CustomTextField;

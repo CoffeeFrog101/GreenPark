@@ -7,7 +7,9 @@ import SearchBar from "./SearchBar";
 
 const StyledContainer = styled.div`
   margin-top: 10px;
-  margin-bottom: 5px
+
+  margin-bottom: 10px;
+
   background-color: white;
 
 `;
@@ -27,7 +29,10 @@ const Home = () => {
       <StyledContainer>
         <Map searchTerm={searchTerm} onMarkerSelect={setSelectedMarker} />
       </StyledContainer>
+
+
       <ParkingStats selectedMarker={selectedMarker} />
+
     </div>
   );
 };
