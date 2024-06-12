@@ -72,12 +72,15 @@ const CustomTextField = ({ onSearchClick }) => {
   const [inputValue, setInputValue] = useState("");
 
   const handleChange = (event) => {
-    setInputValue(event.target.value);
+    const value = event.target.value;
+    setInputValue(value);
+    if (value === "") {
+      onSearchClick(value);
+    }
   };
-
   const handleSearchClick = () => {
     if (onSearchClick) {
-      onSearchClick();
+      onSearchClick(inputValue);
     }
   };
 
