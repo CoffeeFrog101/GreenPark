@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Container from "@mui/material/Container";
 import SearchBar from "./SearchBar";
 
+
 const TopPanel = () => {
   const [showHeading, setShowHeading] = useState(false);
 
@@ -10,9 +11,9 @@ const TopPanel = () => {
     color: "white",
   };
 
-  const headingStyle = {
-    color: "white",
-  };
+export const headingStyle = {
+  color: "white",
+};
 
   const handleSearchClick = () => {
     setShowHeading(true);
@@ -29,6 +30,7 @@ const TopPanel = () => {
       <div className="search-bar" style={{ paddingBottom: "20px" }}>
         <SearchBar onSearchClick={handleSearchClick} />
       </div>
+
     </Container>
   );
 };
