@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "@mui/material/Container";
 
-const ParkingStats = ({ selectedMarker }) => {
+const ParkingStats = ({ markers, searchTerm }) => {
   const statStyle = {
     backgroundColor: "rgb(0, 88, 0)",
     color: "white",
@@ -13,6 +13,9 @@ const ParkingStats = ({ selectedMarker }) => {
   const headingStyle = {
     color: "white",
   };
+  const selectedMarker = markers.find((marker) =>
+    marker.name.toLowerCase().includes(searchTerm)
+  );
 
   if (!selectedMarker) {
     return (

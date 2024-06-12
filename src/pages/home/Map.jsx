@@ -4,9 +4,9 @@ import "leaflet/dist/leaflet.css";
 import fetchData from "../api/API.jsx";
 import L from "leaflet";
 import {
-  tramStopIcon,
   LocationMarker,
   busStopIcon,
+  tramStopIcon,
 } from "../utils/HelperFunc.jsx";
 import Stack from "@mui/material/Stack";
 import "../pages.css";
@@ -24,7 +24,7 @@ L.Icon.Default.mergeOptions({
   shadowUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-shadow.png",
 });
 
-const Map = ({ searchTerm, onMarkerSelect }) => {
+const Map = ({ searchTerm, onMarkerSelect, onMarkersUpdate }) => {
   const [markers, setMarkers] = useState([]);
   const [tramStops, setTramStops] = useState([]);
   const [busStops, setBusStops] = useState([]);
@@ -36,11 +36,14 @@ const Map = ({ searchTerm, onMarkerSelect }) => {
     const getMarkers = async () => {
       const data = await fetchData(API);
       setMarkers(data);
+      if (onMarkersUpdate) {
+        onMarkersUpdate(data);
+      }
       console.log("park and ride stops fetched:", data); // Debug
     };
 
     getMarkers();
-  }, []);
+  }, [onMarkersUpdate]);
 
   useEffect(() => {
     if (showTramStops) {
