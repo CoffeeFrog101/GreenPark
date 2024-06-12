@@ -67,6 +67,7 @@ const StyledSearchButton = styled.button`
   }
 `;
 
+// MAKE ENTER DESTINATION GO IN THE CENTER **
 const CustomTextField = ({ onSearchClick }) => {
   const [inputValue, setInputValue] = useState("");
 
