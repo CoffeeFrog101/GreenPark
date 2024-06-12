@@ -7,9 +7,7 @@ import CustomTextField from "./SearchBar";
 
 const StyledContainer = styled.div`
   margin-top: 10px;
-
   margin-bottom: 10px;
-
   background-color: white;
 `;
 
@@ -21,6 +19,7 @@ const Home = () => {
   const handleSearchClick = (term) => {
     setSearchTerm(term.toLowerCase());
   };
+
   const handleMarkerSelect = (marker) => {
     setSelectedMarker(marker);
   };
@@ -28,6 +27,7 @@ const Home = () => {
   const handleMarkersUpdate = (markers) => {
     setMarkers(markers);
   };
+
 
   return (
     <div className="page-content">
@@ -47,6 +47,7 @@ const Home = () => {
       </StyledContainer>
 
       <ParkingStats markers={markers} searchTerm={searchTerm} />
+
     </div>
   );
 };

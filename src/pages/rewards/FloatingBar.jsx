@@ -9,17 +9,18 @@ const FloatingContainer = styled.div`
   width: 100%;
   line-height: 2em;
   color: #fff;
+  borderradius: "50px";
 `;
 
 const FloatingLabel = styled.label`
-  background: yellow;
-  width: 100%;
-  height: 100%;
+  width: 160%;
+  height: 4em;
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 2;
+  border: 8px solid black;
 `;
 
 const FloatingList = styled.ul`
@@ -31,6 +32,7 @@ const FloatingList = styled.ul`
   margin: 0;
   padding: 0;
   background: darkgreen;
+  borderradius: "50px";
 `;
 
 const FloatingListItem = styled.li`
@@ -45,6 +47,7 @@ const FloatingListItem = styled.li`
   margin: 0.5em 0;
   padding: 0.5em;
   text-align: center;
+  borderradius: "50px";
 
   h3 {
     margin: 0;
@@ -54,7 +57,7 @@ const FloatingListItem = styled.li`
   p {
     margin: 0;
     font-size: 0.8em;
-    color: darkgreen;
+    color: black;
   }
 `;
 
