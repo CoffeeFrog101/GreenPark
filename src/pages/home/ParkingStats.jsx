@@ -7,7 +7,7 @@ const ParkingStats = ({ markers, searchTerm }) => {
     color: "white",
     textAlign: "center",
     borderRadius: "50px",
-    width: "50%",
+    width: "80%",
   };
 
   const headingStyle = {

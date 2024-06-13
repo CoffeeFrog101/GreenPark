@@ -13,7 +13,7 @@ const StyledButton = styled(Button)`
   background-color: rgb(0, 88, 0) !important;
   color: white !important;
   width: 100%;
-  height: 60px; /* Fixed height for all buttons */
+  height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,13 +48,13 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  justify-content: space-between; /* Ensures even spacing between icons */
+  justify-content: space-between; 
 `;
 
 const SmallTextSpan = styled.span`
-  font-size: 12px; /* Adjust font size for smaller text */
-  max-width: calc(100% - 30px); /* Adjust based on icon width and spacing */
-  white-space: nowrap; /* Prevent text from wrapping */
+  font-size: 12px; 
+  max-width: calc(100% - 30px); 
+  white-space: nowrap; 
 `;
 
 const ButtonGrid = () => {

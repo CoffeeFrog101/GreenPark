@@ -10,10 +10,10 @@ const RewardsInfo = ({ floatingBarActive }) => {
     alignItems: "center",
     textAlign: "center",
     borderRadius: "50px",
-    width: floatingBarActive ? "40%" : "80%",
     padding: "12px",
     marginTop: "50px",
     marginBottom: "50px",
+    border: "4px solid black",
   };
 
   const imageStyle = {
