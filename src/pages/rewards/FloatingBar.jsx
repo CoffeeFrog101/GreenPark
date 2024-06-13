@@ -1,5 +1,10 @@
 import React from "react";
 import styled from "styled-components";
+import greenStats from "../imgs/greenStats.png";
+import leaderboard from "../imgs/leaderboard.png";
+import whiteRose from "../imgs/whiteRose.png";
+import Coffee from "../imgs/200Coffee.png";
+import city from "../imgs/city.png";
 
 const FloatingContainer = styled.div`
   position: fixed;
@@ -9,7 +14,6 @@ const FloatingContainer = styled.div`
   width: 100%;
   line-height: 2em;
   color: #fff;
-  borderradius: "50px";
 `;
 
 const FloatingLabel = styled.label`
@@ -32,7 +36,6 @@ const FloatingList = styled.ul`
   margin: 0;
   padding: 0;
   background: darkgreen;
-  borderradius: "50px";
 `;
 
 const FloatingListItem = styled.li`
@@ -47,23 +50,33 @@ const FloatingListItem = styled.li`
   margin: 0.5em 0;
   padding: 0.5em;
   text-align: center;
-  borderradius: "50px";
 
-  h3 {
+  h3,
+  p {
     margin: 0;
-    font-size: 1.2em;
   }
 
   p {
-    margin: 0;
-    font-size: 0.8em;
     color: black;
+    font-size: 0.7em;
   }
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  align-items: flex-end; /* Align items to the bottom */
+  justify-content: center;
+  height: 100%; /* Ensure the container takes full height of FloatingListItem */
+`;
+
+const Image = styled.img`
+  width: ${(props) => props.width || "auto"};
+  height: ${(props) => props.height || "auto"};
 `;
 
 const FloatingInput = styled.input`
   &[type="checkbox"]:checked + ul {
-    bottom: 2em; /* Show the floating list when the checkbox is checked */
+    bottom: 2em;
   }
 `;
 
@@ -76,14 +89,38 @@ const FloatingBar = () => {
         <FloatingListItem>
           <h3>Leaderboard</h3>
           <p>Challenge your mates!</p>
+          <ImageContainer>
+            <Image
+              src={leaderboard}
+              alt="Leaderboard"
+              width="10vh"
+              height="auto"
+            />
+            <Image src={city} alt="City" width="10vh" height="auto" />
+          </ImageContainer>
         </FloatingListItem>
         <FloatingListItem>
           <h3>Greenstats</h3>
           <p>Track your progress!</p>
+          <Image
+            src={greenStats}
+            alt="Green Stats"
+            width="10vh"
+            height="auto"
+          />
         </FloatingListItem>
         <FloatingListItem>
           <h3>Rewards & Offers</h3>
           <p>See what you can unlock!</p>
+          <ImageContainer>
+            <Image
+              src={whiteRose}
+              alt="White Rose"
+              width="10vh"
+              height="auto"
+            />
+            <Image src={Coffee} alt="Coffee" width="10vh" height="auto" />
+          </ImageContainer>
         </FloatingListItem>
       </FloatingList>
     </FloatingContainer>

@@ -8,6 +8,7 @@ const ParkingStats = ({ markers, searchTerm }) => {
     textAlign: "center",
     borderRadius: "50px",
     width: "80%",
+    border: "4px solid black",
   };
 
   const headingStyle = {
