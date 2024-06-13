@@ -13,15 +13,15 @@ const StyledButton = styled(Button)`
   background-color: rgb(0, 88, 0) !important;
   color: white !important;
   width: 100%;
-  height: auto; 
+  height: 60px; /* Fixed height for all buttons */
   display: flex;
-  flex-direction: column; 
-  justify-content: center; 
-  align-items: center; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-transform: none;
   font-size: 14px;
   margin-top: 20px;
-  padding: 10px; 
+  padding: 10px;
 
   &:hover {
     border: 4px solid black;
@@ -51,6 +51,12 @@ const IconWrapper = styled.div`
   justify-content: space-between; /* Ensures even spacing between icons */
 `;
 
+const SmallTextSpan = styled.span`
+  font-size: 12px; /* Adjust font size for smaller text */
+  max-width: calc(100% - 30px); /* Adjust based on icon width and spacing */
+  white-space: nowrap; /* Prevent text from wrapping */
+`;
+
 const ButtonGrid = () => {
   return (
     <Grid container spacing={2}>
@@ -69,7 +75,7 @@ const ButtonGrid = () => {
             <Icon src={vehicleInfo} />
             <ArrowIcon src={arrows} />
           </IconWrapper>
-          <span>Vehicle Information</span>
+          <SmallTextSpan>Vehicle Information</SmallTextSpan>
         </StyledButton>
       </Grid>
       <Grid item xs={6}>
@@ -87,7 +93,7 @@ const ButtonGrid = () => {
             <Icon src={paymentInfo} />
             <ArrowIcon src={arrows} />
           </IconWrapper>
-          <span>Payment Information</span>
+          <SmallTextSpan>Payment Information</SmallTextSpan>
         </StyledButton>
       </Grid>
       <Grid item xs={6}>
