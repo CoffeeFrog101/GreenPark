@@ -1,72 +1,104 @@
-# Getting Started with Create React App
+# Green Park: Driving Sustainability in Nottingham
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Overview
 
-## Available Scripts
+Green Park is a user-friendly mobile application designed to promote sustainable transportation in Nottingham by encouraging visitors to choose Park & Ride sites over city-center driving. The app serves as a demonstration of how Open Data can create innovative solutions for urban mobility and environmental challenges, supporting Nottingham's ambitious goal to become carbon neutral by 2028.
 
-In the project directory, you can run:
+### Challenge Context
+- **Duration**: Two-week development challenge
+- **Organizer**: Nottingham Trent University (NTU)
+- **Host**: BJSS Nottingham
+- **Format**: Intensive collaborative development sprint
 
-### `npm start`
+## Project Goals
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Primary Objective**: Motivate car users to choose Park & Ride sites as a sustainable and smart transportation option
+- **Environmental Impact**: Reduce urban carbon emissions by up to 30%
+- **Data Innovation**: Showcase the potential of Open Data solutions for smart city initiatives
+- **User Experience**: Provide real-time, actionable guidance for visitors to Nottingham
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Key Features
 
-### `npm test`
+### Real-Time Data Integration
+- **Live Car Park Occupancy**: Consumes real-time feeds of car park occupancy data
+- **Public Transport Schedules**: Integrates current public transport timetables
+- **Multi-Location Processing**: Handles data from multiple Park & Ride locations simultaneously
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Route Planning & Optimization
+- **Smart Route Guidance**: Shows the best Park & Ride site based on current conditions
+- **Integrated Navigation**: May integrate with existing route planning applications
+- **Real-Time Updates**: Provides dynamic guidance based on changing occupancy levels
 
-### `npm run build`
+### Environmental Impact Tracking
+- **CO2 Calculations**: Calculates emissions reductions versus direct city-center driving
+- **Carbon Footprint Comparison**: Shows environmental benefits of choosing Park & Ride
+- **Sustainability Metrics**: Tracks and displays collective environmental impact
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Gamification Elements
+- **User Engagement**: Implements gamification features to encourage sustainable choices
+- **Achievement System**: Rewards users for making environmentally conscious decisions
+- **Progress Tracking**: Monitors individual and community sustainability contributions
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Technical Specifications
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack
+- **Frontend Framework**: React
+- **Primary Language**: JavaScript
+- **Styling**: CSS
+- **Markup**: HTML 
+- **API Architecture**: RESTful APIs (Open Data Nottingham)
+- **Data Integration**: Real-time feeds and open data sources
 
-### `npm run eject`
+### Development Team
+- **Team Size**: 4 developers
+- **Development Approach**: Collaborative full-stack development
+- **Focus Areas**: Real-time data processing, user experience, and environmental impact calculation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Data Sources & Integration
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Open Data Utilization
+- **Car Park Occupancy Data**: Real-time feeds from Nottingham city systems
+- **Public Transport Data**: Integration with local transport authority schedules
+- **Environmental Data**: CO2 emission calculations and reduction metrics
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### API Integration
+- **RESTful Services**: Clean, scalable API architecture
+- **Real-Time Processing**: Live data consumption and processing
+- **Third-Party Integration**: Potential integration with existing route planning services
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Environmental Impact
 
-## Learn More
+### Carbon Reduction Goals
+- **Target Reduction**: Up to 30% decrease in urban carbon emissions
+- **Measurement System**: Real-time CO2 calculation and tracking
+- **Community Impact**: Collective sustainability metrics and reporting
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Supporting Nottingham's Vision
+- **Carbon Neutral 2028**: Directly supports the city's environmental goals
+- **Smart City Initiative**: Demonstrates innovative use of technology for sustainability
+- **Public Awareness**: Raises awareness about sustainable transportation options
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## User Experience Design
 
-### Code Splitting
+### Core Functionality
+- **Intuitive Interface**: User-friendly design for quick decision-making
+- **Real-Time Guidance**: Immediate, actionable information
+- **Seamless Integration**: Works alongside existing navigation and transport apps
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Accessibility Features
+- **Multi-Device Support**: Optimized for various devices and screen sizes
+- **Clear Information Hierarchy**: Easy-to-understand occupancy and route information
+- **Quick Decision Support**: Rapid access to the most relevant Park & Ride options
 
-### Analyzing the Bundle Size
+## Future Development Opportunities
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Potential Enhancements
+- **Expanded Integration**: Additional route planning application partnerships
+- **Advanced Analytics**: More sophisticated environmental impact modeling
+- **User Community Features**: Social aspects and community challenges
+- **Predictive Capabilities**: AI-driven occupancy and demand forecasting
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-
-# GreenPark
+### Scalability Considerations
+- **Other Cities**: Potential adaptation for other urban areas
+- **Additional Transport Modes**: Integration with other sustainable transport options
+- **Enhanced Gamification**: More complex reward and achievement systems
